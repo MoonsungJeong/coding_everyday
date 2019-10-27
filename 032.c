@@ -17,11 +17,11 @@ int main(){
 		num[cnt] = x[tmp];
 		cnt++;
 	}
-	for(i=0; i<=cnt; i++){
+	for(i=0; i<cnt; i++){
 		num2[i] = num[cnt-i-1];
 	}
 
-	printf("10진수 %d ==> 16진수 %s\n",NUMBER,num);
+	printf("10진수 %d ==> 16진수 %s\n",NUMBER,num2);
 
 
 	return 0;
