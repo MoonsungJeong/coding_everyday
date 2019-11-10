@@ -6,7 +6,7 @@
 #include<math.h>
 #define RADIAN(degree) (((double)(degree)*3.141592)/180.0)
 int main(){
-	double height;
+	double height;  
 	double d = 100.0;
 
 	height = (d*sin(RADIAN(30))*sin(RADIAN(40))) / (sin(RADIAN(40-30)));
