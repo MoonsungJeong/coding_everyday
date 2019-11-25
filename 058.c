@@ -1,35 +1,31 @@
-// 3-48 정수 두 개와 사칙 연산 번호를 입력받아서 계산한 결과를 출력합니다. 단, 나눗셈에서 0으로 
-// 나눌 때, "0으로 나눌 수 없습니다." 오류 메시지를 출력하세요.
+// 3-49 이름을 입력받아서 출력하는 과정을 10번 반복해서 진행하세요. 단, 입력한이름이 없으면 종료하고, 같은 이름이 입력된 적이 있으면
+// "이미 존재하는 이름입니다."를 출력하세요.
 
 #include<stdio.h>
+#include<string.h>
+char name_list[10][256];
 
+int name_check(char *s){
+	int i;
+	for(i=0;i<10; i++){
+		if(!(strcmp(s,name_list[i])))
+			return 0;
+	}
+	return 1;
+}
 int main(){
-	int num1, num2, op;
-	printf("사칙연산에 사용할 처음 정수를 입력하세요: ");
-	scanf("%d",&num1);
-	printf("사칙연산 번호 1~4를 입력하세요(1:'+', 2:'-', 3:'/', 4:'*'): ");
-	scanf("%d", &op);
-	printf("사칙연산에 사용할 다음 정수를 입력하세요: ");
-	scanf("%d", &num2);
-
-	switch(op){
-	case 1:
-		printf("%d + %d = %d\n",num1,num2,num1+num2);
-		break;
-	case 2:
-		printf("%d - %d = %d\n",num1,num2,num1-num2);
-		break;
-	case 3:
-		if(num2 == 0){
-			printf("0으로 나눌 수 없습니다.\n");
-			break;
+	int i;
+	char name[256];
+	for(i=0; i<10; i++){
+		printf("이름을 입력하세요: ");
+		scanf("%s",name);
+		if(!name_check(name)){
+			i--;
+			printf("이미 존재하는 이름입니다.\n");
 		}else{
-			printf("%d / %d = %d\n",num1,num2,num1/num2);
-			break;
+			strcpy(name_list[i],name);
+			printf("입력한 이름: %s\n",name_list[i]);
 		}
-	case 4:
-		printf("%d * %d = %d\n",num1,num2,num1*num2);
-		break;
 	}
 	return 0;
 }
