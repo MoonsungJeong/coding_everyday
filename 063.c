@@ -8,7 +8,7 @@ int main(){
 	scanf("%lf",&r);
 	result = 4*(r/2)*(r/2)*PI;
 	printf("지름 %.3f인 구의 표면적 = %.3f\n",r,result); 
-
+	   
 	return 0;
 }
 
